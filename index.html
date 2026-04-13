@@ -288,9 +288,23 @@
     50% { box-shadow: 0 0 18px rgba(30,202,211,0.14); }
   }
 
+  @keyframes pulseTurquoise {
+    0%, 100% {
+      background: linear-gradient(135deg, var(--bg-primary) 0%, #0D0D0D 100%);
+      border-color: var(--border);
+    }
+    50% {
+      background: linear-gradient(135deg, rgba(30,202,211,0.02) 0%, rgba(30,202,211,0.01) 100%);
+      border-color: rgba(30,202,211,0.15);
+    }
+  }
+
   @media (hover: none) {
     .btn-dark, .btn-outline, .form-submit {
       animation: pulseGlow 6s ease-in-out infinite;
+    }
+    .profile-card, .about-highlight, .why-card {
+      animation: pulseTurquoise 8s ease-in-out infinite;
     }
     .profile-card:active, .about-highlight:active, .service-row:active, .why-card:active {
       transform: translateY(0);
