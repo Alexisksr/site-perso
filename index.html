@@ -242,6 +242,69 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 25px var(--glow);
   }
+  .btn-dark:active, .btn-dark:focus-visible,
+  .btn-outline:active, .btn-outline:focus-visible,
+  .form-submit:active, .form-submit:focus-visible {
+    outline: none;
+    transform: translateY(-1px);
+    box-shadow: 0 0 22px rgba(30,202,211,0.28);
+  }
+  .btn-dark:active, .btn-dark:focus-visible {
+    background: var(--accent-hover);
+  }
+  .btn-outline:active, .btn-outline:focus-visible {
+    background: rgba(30,202,211,0.14);
+    border-color: var(--accent);
+    color: var(--text-primary);
+  }
+  .form-submit:active, .form-submit:focus-visible {
+    background: var(--accent-hover);
+  }
+  .nav-toggle:active, .nav-toggle:focus-visible,
+  .nav-links a:active, .nav-links a:focus-visible,
+  .footer-links a:active, .footer-links a:focus-visible,
+  .info-val a:active, .info-val a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 18px rgba(30,202,211,0.3);
+  }
+  .nav-links a:focus-visible,
+  .footer-links a:focus-visible,
+  .info-val a:focus-visible {
+    outline: 2px solid rgba(30,202,211,0.35);
+    outline-offset: 4px;
+  }
+  .interactive-touch {
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+    touch-action: manipulation;
+  }
+  .btn-dark, .btn-outline, .form-submit, .nav-toggle,
+  .profile-card, .about-highlight, .service-row, .why-card,
+  .nav-links a, .footer-links a, .info-val a {
+    touch-action: manipulation;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 rgba(30,202,211,0.08); }
+    50% { box-shadow: 0 0 18px rgba(30,202,211,0.14); }
+  }
+
+  @media (hover: none) {
+    .btn-dark, .btn-outline, .form-submit {
+      animation: pulseGlow 6s ease-in-out infinite;
+    }
+    .profile-card:active, .about-highlight:active, .service-row:active, .why-card:active {
+      transform: translateY(0);
+      box-shadow: 0 0 18px rgba(30,202,211,0.2);
+      border-color: var(--accent);
+    }
+    .service-row:hover, .profile-card:hover, .about-highlight:hover, .why-card:hover {
+      transform: none;
+      box-shadow: none;
+      margin: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 
   /* ── MARQUEE BAND ─────────────────────────────── */
   .band {
@@ -301,7 +364,9 @@
     transition: all 0.3s ease;
     cursor: default;
   }
-  .profile-card:hover {
+  .profile-card:hover,
+  .profile-card:active,
+  .profile-card:focus-within {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px var(--glow);
     border-color: var(--accent);
@@ -357,7 +422,9 @@
     margin: 2rem 0; display: flex; gap: 1rem; align-items: flex-start;
     transition: all 0.3s ease;
   }
-  .about-highlight:hover {
+  .about-highlight:hover,
+  .about-highlight:active,
+  .about-highlight:focus-within {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px var(--glow);
     border-color: var(--accent);
@@ -410,7 +477,9 @@
     cursor: default;
   }
   .service-row:first-child { border-top: 1px solid var(--border); }
-  .service-row:hover { 
+  .service-row:hover,
+  .service-row:active,
+  .service-row:focus-within { 
     background: var(--bg-secondary); margin: 0 -3rem; padding-left: 3rem; padding-right: 3rem; 
     transform: translateX(8px);
     box-shadow: inset 0 0 20px var(--glow);
@@ -458,7 +527,9 @@
     transition: all 0.3s ease;
     border: 1px solid transparent;
   }
-  .why-card:hover { 
+  .why-card:hover,
+  .why-card:active,
+  .why-card:focus-within { 
     background: var(--bg-secondary); 
     transform: translateY(-4px);
     box-shadow: 0 12px 40px var(--glow);
