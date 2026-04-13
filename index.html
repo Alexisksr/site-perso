@@ -142,7 +142,7 @@
   .hero::before {
     content: '';
     position: absolute; top: -10rem; right: -10rem;
-    width: 70vw; height: 70vw; max-width: 900px; max-height: 900px;
+    width: 70vw; height: 70vw; max-width: min(90vw, 900px); max-height: min(90vw, 900px);
     border-radius: 50%;
     background: radial-gradient(circle, rgba(30,202,211,0.07) 0%, transparent 70%);
     pointer-events: none;
@@ -265,7 +265,7 @@
   /* ── SECTIONS ────────────────────────────────── */
   section { 
     padding: clamp(3rem, 5vw, 8rem) clamp(1rem, 4vw, 3rem); 
-    max-width: 1100px; 
+    max-width: min(100%, 1100px); 
     margin: 0 auto;
   }
   .section-label {
@@ -284,7 +284,12 @@
   .about { background: var(--bg-primary); }
   .about-inner {
     display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    gap: 5rem; align-items: start; max-width: 1200px; margin: 0 auto;
+    gap: 5rem; align-items: start; max-width: min(100%, 1200px); margin: 0 auto;
+    min-width: 0;
+  }
+  .container {
+    max-width: min(100%, 1200px);
+    margin: 0 auto;
     min-width: 0;
   }
   .about-left { position: sticky; top: 8rem; }
@@ -339,12 +344,12 @@
   .about-content .lead {
     font-size: 1.15rem; color: var(--text-secondary); font-weight: 300;
     line-height: 1.6; margin-bottom: 2rem;
-    max-width: 650px;
+    max-width: min(100%, 42rem);
   }
   .about-content p {
     font-size: 0.95rem; color: var(--text-secondary); font-weight: 300;
     line-height: 1.6; margin-bottom: 1.2rem;
-    max-width: 650px;
+    max-width: min(100%, 42rem);
   }
   .about-highlight {
     background: var(--surface); border: 1px solid var(--border);
@@ -363,7 +368,7 @@
   }
   .highlight-text { 
     font-size: 0.95rem; color: var(--text-primary); font-weight: 400; line-height: 1.6; 
-    max-width: 650px;
+    max-width: min(100%, 42rem);
   }
 
   /* Timeline */
@@ -374,11 +379,11 @@
   }
   .tl-year {
     font-family: 'Syne', sans-serif; font-size: 0.9rem; font-weight: 600;
-    color: var(--accent); min-width: 55px; flex-shrink: 0;
+    color: var(--accent); min-width: 3.5rem; flex-shrink: 0;
   }
   .tl-text { 
     font-size: 0.9rem; color: var(--text-secondary); 
-    max-width: 600px;
+    max-width: min(100%, 38rem);
   }
 
   /* ── SERVICES ────────────────────────────────── */
@@ -386,18 +391,19 @@
   .services-top {
     display: flex; justify-content: space-between; align-items: flex-end;
     margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem;
-    max-width: 1200px; margin-left: auto; margin-right: auto; margin-bottom: 3.5rem;
+    max-width: min(100%, 1200px); margin-left: auto; margin-right: auto; margin-bottom: 3.5rem;
   }
   .services-desc { 
-    max-width: 600px; font-size: 1rem; color: var(--text-secondary); font-weight: 300; 
+    max-width: min(100%, 40rem); font-size: 1rem; color: var(--text-secondary); font-weight: 300; 
     line-height: 1.6;
   }
   .services-list {
     display: flex; flex-direction: column;
-    max-width: 1200px; margin: 0 auto;
+    max-width: min(100%, 1200px); margin: 0 auto;
+    min-width: 0;
   }
   .service-row {
-    display: grid; grid-template-columns: 3fr 1fr 1fr;
+    display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 1fr) minmax(0, 1fr);
     align-items: center; gap: 2rem;
     padding: 2rem 0; border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
@@ -440,7 +446,7 @@
     margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem;
   }
   .why-sub { 
-    max-width: 600px; font-size: 0.95rem; color: var(--text-secondary); font-weight:300; 
+    max-width: min(100%, 42rem); font-size: 0.95rem; color: var(--text-secondary); font-weight:300; 
     line-height: 1.6;
   }
   .why-grid {
@@ -474,8 +480,9 @@
   /* ── CONTACT ─────────────────────────────────── */
   .contact { background: var(--bg-primary); border-top: 1px solid var(--border); }
   .contact-inner {
-    display: grid; grid-template-columns: 4fr 6fr;
-    gap: 5rem; max-width: 1200px; margin: 0 auto; align-items: start;
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+    gap: 5rem; max-width: min(100%, 1200px); margin: 0 auto; align-items: start;
+    min-width: 0;
   }
   .contact-info { margin-top: 2.5rem; }
   .info-row {
@@ -485,7 +492,7 @@
   .info-label { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
   .info-val { 
     font-size: 1rem; color: var(--text-primary); 
-    max-width: 600px;
+    max-width: min(100%, 38rem);
   }
   .info-val a { 
     color: var(--text-primary); text-decoration: none; 
@@ -553,7 +560,7 @@
   .footer-logo span { color: var(--accent); }
   .footer-copy { 
     font-size: 0.8rem; color: var(--text-secondary); 
-    max-width: 600px;
+    max-width: min(100%, 38rem);
   }
   .footer-links { display: flex; gap: 1.5rem; }
   .footer-links a {
@@ -807,7 +814,7 @@
 
 <!-- POURQUOI MOI -->
 <section class="why" id="pourquoi">
-  <div style="max-width:1200px; margin:0 auto;">
+  <div class="container">
     <div class="why-header reveal">
       <div>
         <span class="section-label">Mes atouts</span>
